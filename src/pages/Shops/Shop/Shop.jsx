@@ -36,19 +36,19 @@ const Shop = () => {
       {/* <ShopCategory items={offered}></ShopCategory> */}
 
       {/* book */}
-      <ShopCategory items={book} title="Zahan Book Store" img={bookStoreImg}></ShopCategory>
+      <ShopCategory items={book} title={"book"} img={bookStoreImg}></ShopCategory>
 
       {/* mobile */}
-      <ShopCategory items={mobile} title="Mondol Mobile" img={mobilStoreImg}></ShopCategory>
+      <ShopCategory items={mobile} title={"mobile"} img={mobilStoreImg}></ShopCategory>
 
       {/* shirt */}
-      <ShopCategory items={shirt} title="Shakila Cloth House" img={clothStoreImg}></ShopCategory>
+      <ShopCategory items={shirt} title={"shirt"} img={clothStoreImg}></ShopCategory>
 
        {/* pants */}
-       <ShopCategory items={pants} title="China Pant House" img={clothStoreImg}></ShopCategory>
+       <ShopCategory items={pants} title={"pants"} img={clothStoreImg}></ShopCategory>
 
          {/* shoes */}
-         <ShopCategory items={shoes} title="Apex Shoes" img={shoeStoreImg}></ShopCategory>
+         <ShopCategory items={shoes} title={"shoes"} img={shoeStoreImg}></ShopCategory>
         
     </div>
   );

@@ -6,12 +6,17 @@ import "react-tabs/style/react-tabs.css";
 import useShop from "../../../hooks/useShop";
 
 import CreateTab from "../CreateTab/CreateTab";
+import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 // import OrderTab from "../OrderTab/OrderTab";
 
 const CreateShop = () => {
-    
-  const [tabIndex, setTabIndex] = useState(0);
-  const [items] = useShop();
+ const categories = ['book', 'mobile', 'shirt', 'pants', 'shoes'];
+ const { category } = useParams();
+ const initialIndex = categories.indexOf(category);
+ const [tabIndex, setTabIndex] = useState(initialIndex);
+ const [items] = useShop();
+ 
   const book = items.filter(item => item.category === 'book');
   const mobile = items.filter(item => item.category === 'mobile');
   const shirt = items.filter(item => item.category === 'shirt');
@@ -20,6 +25,9 @@ const CreateShop = () => {
   
   return (
     <div>
+        <Helmet>
+        <title>ShopHub | Create Shop</title>
+      </Helmet>
       <Cover img={createShopImg} title="Create Shop"></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>

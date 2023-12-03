@@ -7,7 +7,7 @@ const useShop = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect( () => {
-        fetch('items.json')
+        fetch('http://localhost:5000/items')
         .then(res => res.json())
         .then(data => {
             setItems(data);

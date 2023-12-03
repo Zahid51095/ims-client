@@ -23,7 +23,7 @@ import CreateShop from "../pages/CreateShop/CreateShop/CreateShop";
           element: <Shop></Shop>
         },
         {
-          path: 'create-shop',
+          path: 'create-shop/:category',
           element: <CreateShop></CreateShop>
         }
       ]
