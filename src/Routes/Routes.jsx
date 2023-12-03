@@ -6,6 +6,8 @@ import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Shop from "../pages/Shops/Shop/Shop";
 import CreateShop from "../pages/CreateShop/CreateShop/CreateShop";
+import Login from "../pages/Login/Login";
+import SignUp from "../pages/SignUp/SignUp";
 
 
  export const router = createBrowserRouter([
@@ -25,6 +27,14 @@ import CreateShop from "../pages/CreateShop/CreateShop/CreateShop";
         {
           path: 'create-shop/:category',
           element: <CreateShop></CreateShop>
+        },
+        {
+          path: 'login',
+          element: <Login></Login>
+        },
+        {
+          path: 'signup',
+          element: <SignUp></SignUp>
         }
       ]
     },
