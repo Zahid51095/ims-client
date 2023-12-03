@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
 
     const navOptions = <>
-    
+
     <li><Link to="/">Home</Link></li>
     <li><Link to="/shops">Our Shops</Link></li>
-    <li><a>Parent</a></li>
-    <li><a>Item 3</a></li>
+    <li><Link to="/create-shop">Create Shop</Link></li>
+   
     </>
 
 
