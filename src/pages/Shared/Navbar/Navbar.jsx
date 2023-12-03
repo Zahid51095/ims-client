@@ -16,7 +16,7 @@ const Navbar = () => {
 
     <li><Link to="/">Home</Link></li>
     <li><Link to="/shops">Our Shops</Link></li>
-    <li><Link to="/create-shop/book">Create Shop</Link></li>
+    <li><Link to="/create-shop/book">Add to Cart</Link></li>
     
 
     {
@@ -52,7 +52,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <a href="https://www.youtube.com/watch?v=Q52Zcq09Hrg" target="_blank" rel="noopener noreferrer"  className="btn">Watch Demo</a>
   </div>
 </div>  
         </>
