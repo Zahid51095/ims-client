@@ -26,9 +26,9 @@ const CreateShop = () => {
   return (
     <div>
         <Helmet>
-        <title>ShopHub | Create Shop</title>
+        <title>ShopHub | Explore Shop</title>
       </Helmet>
-      <Cover img={createShopImg} title="Create Shop"></Cover>
+      <Cover img={createShopImg} title="Explore Our Shop"></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
           <Tab>Book Shop</Tab>
