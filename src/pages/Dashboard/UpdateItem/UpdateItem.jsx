@@ -1,16 +1,24 @@
-import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import { FaCartPlus } from "react-icons/fa6";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { axiosSecure } from "../../../hooks/useAxiosSecure";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const AddItems = () => {
+
+const UpdateItem = () => {
+    const { name, category, description, price, _id } = useLoaderData();
+
     const { register, handleSubmit, reset } = useForm();
+
+   
+
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
+
+    const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+    const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
     const onSubmit = async (data) => {
         const imageFile = { image: data.image[0] }
@@ -27,14 +35,14 @@ const AddItems = () => {
             description: data.description,
             image: res.data.data.display_url
         }
-        const ProductRes = await axiosSecure.post('/items', ProductItem);
+        const ProductRes = await axiosSecure.patch(`/items/${_id}`, ProductItem);
         console.log(ProductRes.data);
-        if(ProductRes.data.insertedId){
+        if(ProductRes.data.modifiedCount > 0){
             reset();
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: `${data.name} is added to the menu.`,
+                title: `${data.name} is updated to the Product items.`,
                 showConfirmButton: false,
                 timer: 1500
               });
@@ -44,13 +52,10 @@ const AddItems = () => {
     };
 
 
-  return (
-    <div>
-      <SectionTitle
-        heading="add a product"
-        subHeading="What's new?"
-      ></SectionTitle>
-      <div>
+    return (
+        <div>
+            <SectionTitle heading="Update Product" subHeading="Make Your Own"></SectionTitle>
+            <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full my-6">
             <label className="label">
@@ -58,6 +63,7 @@ const AddItems = () => {
             </label>
             <input
               type="text"
+              defaultValue={name}
               placeholder="Product Name"
               {...register("name", {required: true})}
               required
@@ -71,7 +77,7 @@ const AddItems = () => {
               <label className="label">
                 <span className="label-text">Category*</span>
               </label>
-              <select defaultValue="default"
+              <select defaultValue={category}
                 {...register("category", {required: true})}
                 className="select select-bordered w-full"
               >
@@ -94,6 +100,7 @@ const AddItems = () => {
               </label>
               <input
                 type="number"
+                defaultValue={price}
                 placeholder="Price"
                 {...register("price", {required: true})}
                 className="input input-bordered w-full"
@@ -108,17 +115,18 @@ const AddItems = () => {
             <textarea
               {...register('description')}
               className="textarea textarea-bordered h-24"
+              defaultValue={description}
               placeholder="details"
             ></textarea>
           </div>
           <div className="form-control w-full my-6">
           <input {...register('image', {required: true})} type="file" className="file-input w-full max-w-xs" />
           </div>
-          <button className="btn bg-yellow-500">Add Product<FaCartPlus></FaCartPlus></button>
+          <button className="btn bg-yellow-500">Update Product</button>
         </form>
       </div>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default AddItems;
+export default UpdateItem;
