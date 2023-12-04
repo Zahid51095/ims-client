@@ -91,7 +91,7 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
        {
           path: 'updateItem/:id',
           element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/items/${params.id}`)
+          loader: ({params}) => fetch(`https://ims-server-gold.vercel.app/items/${params.id}`)
        },
        {
          path: 'users',

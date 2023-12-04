@@ -11,7 +11,7 @@ const useShop = () => {
     // const [items, setItems] = useState([]);
     // const [loading, setLoading] = useState(true);
     // useEffect( () => {
-    //     fetch('http://localhost:5000/items')
+    //     fetch('https://ims-server-gold.vercel.app/items')
     //     .then(res => res.json())
     //     .then(data => {
     //         setItems(data);

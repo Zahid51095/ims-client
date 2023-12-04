@@ -20,7 +20,7 @@ const Navbar = () => {
     const navOptions = <>
 
     <li><Link to="/">Home</Link></li>
-    <li><Link to="/shops">Create Shop</Link></li>
+    {user && <li><Link to="/shops">Create Shop</Link></li>}
     <li><Link to="/create-shop/book">Add to Cart</Link></li>
 
     {
